@@ -6,6 +6,6 @@ Made with HTML, CSS, JS, and :heart:
 
 - [x] Markup
 - [x] Styles
-- [ ] Generate Board
+- [x] Generate Board
 - [ ] Turn
 - [ ] Win Logic
