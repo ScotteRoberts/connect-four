@@ -4,7 +4,7 @@ Made with HTML, CSS, JS, and :heart:
 
 ## Requirements
 
-- [ ] Markup
+- [x] Markup
 - [ ] Styles
 - [ ] Generate Board
 - [ ] Turn
