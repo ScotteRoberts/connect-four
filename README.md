@@ -7,10 +7,14 @@ Made with HTML, CSS, JS, and :heart:
 - [x] Markup
 - [x] Styles
 - [x] Generate Board
-- [ ] Game Rules
-  - [ ] Selecting input toggles color
-  - [ ] Change who's turn it is
-  - [ ] Change who's turn is diplayed
-  - [ ] Disable invalid slots
-  - [ ] Player history for undo
+- [x] Game Rules
+  - [x] Selecting input toggles color
+  - [x] Change who's turn it is
+  - [x] Change who's turn is diplayed
+  - [x] Disable invalid slots
+  - [x] Player history for undo
 - [ ] Win Logic
+- [ ] Modularity
+- [ ] Extensions
+  - [ ] Score Board
+  - [ ] Timer
