@@ -1,0 +1,11 @@
+@import 'variables.css';
+@import 'headers.css';
+@import 'board.css';
+
+body {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  height: 100vh;
+}
