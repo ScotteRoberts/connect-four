@@ -5,7 +5,7 @@ Made with HTML, CSS, JS, and :heart:
 ## Requirements
 
 - [x] Markup
-- [ ] Styles
+- [x] Styles
 - [ ] Generate Board
 - [ ] Turn
 - [ ] Win Logic
