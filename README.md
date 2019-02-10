@@ -13,7 +13,7 @@ Made with HTML, CSS, JS, and :heart:
   - [x] Change who's turn is diplayed
   - [x] Disable invalid slots
   - [x] Player history for undo
-- [ ] Win Logic
+- [x] Win Logic
 - [ ] Modularity
 - [ ] Extensions
   - [ ] Score Board
