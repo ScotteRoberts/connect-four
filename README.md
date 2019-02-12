@@ -14,7 +14,10 @@ Made with HTML, CSS, JS, and :heart:
   - [x] Disable invalid slots
   - [x] Player history for undo
 - [x] Win Logic
-- [ ] Modularity
+- [x] Modularity
 - [ ] Extensions
+  - [ ] Move History
+    - [ ] Move Display
+    - [ ] Undo
   - [ ] Score Board
   - [ ] Timer
