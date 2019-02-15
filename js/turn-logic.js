@@ -1,4 +1,4 @@
-import checkWin from './win-logic.js';
+import { checkWin, increaseScore } from './win-logic.js';
 import { getSlotElement, disableBoard, BOARDROWS } from './helpers.js';
 
 let player1Turn = true;
@@ -36,7 +36,7 @@ export default function runTurn(event) {
     disableBoard();
 
     // TODO: Add points to the scoreboard
-    // increaseScore(winnerClass);
+    increaseScore(player);
 
     return;
   }

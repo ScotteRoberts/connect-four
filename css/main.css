@@ -1,11 +1,26 @@
 @import 'variables.css';
 @import 'headers.css';
 @import 'board.css';
+@import 'score-board.css';
 
 body {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 1em;
   align-items: center;
-  height: 100vh;
+  justify-items: center;
+  height: 0;
+}
+
+h1 {
+  grid-column-start: span 3;
+}
+
+.player1 {
+  color: var(--player1-color);
+}
+
+.player2 {
+  color: var(--player2-color);
 }

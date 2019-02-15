@@ -10,7 +10,25 @@
   </head>
   <body>
     <h1>Connect Four</h1>
-    <h2 id="turn-indicator"><span id="player-indicator" class="player1">Player 1</span> Turn</h2>
-    <div id="board"></div>
+    <div id="turn-history-container">
+      <h2 id="turn-history-title">Turn History</h2>
+      <div id="turn-history-display"></div>
+      <button id="undo">Undo</button>
+    </div>
+    <div id="board-container">
+      <h2 id="turn-indicator"><span id="player-indicator" class="player1">Player 1</span> Turn</h2>
+      <div id="board"></div>
+    </div>
+    <div id="score-board-container">
+      <h2>Score Board</h2>
+      <div id="score-board">
+        <h3 class="player1">Player 1</h3>
+        <h4 id="player1-score">0</h4>
+        <h3 class="player2">Player 2</h3>
+        <h4 id="player2-score">0</h4>
+      </div>
+    </div>
+
     <script src="./js/main.js" type="module"></script>
+  </body>
 </html>

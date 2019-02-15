@@ -1,12 +1,28 @@
 import { getSlotElement, BOARDROWS, BOARDCOLS } from './helpers.js';
 
 /**
+ *
+ * @param {string} currentPlayer Current player's class
+ */
+export function increaseScore(currentPlayer) {
+  console.log(currentPlayer);
+  if (currentPlayer === 'player1') {
+    let player1Score = document.getElementById('player1-score').innerHTML;
+    let score = parseInt(player1Score);
+    score++;
+    console.log(score);
+    const scoreString = score.toString();
+    player1Score = scoreString;
+  }
+}
+
+/**
  * Checks if there is a win condition met in all any direction (up, down, diagonal)
  * @param {number} col Column of the slot to start checking at
  * @param {number} row Row of the slot to start checking at
  * @param {string} currentPlayer Current player's class
  */
-export default function checkWin(col, row, currentPlayer) {
+export function checkWin(col, row, currentPlayer) {
   return (
     checkDown(col, row, currentPlayer) ||
     checkAccross(col, row, currentPlayer) ||
