@@ -1,4 +1,5 @@
 import { getSlotElement, BOARDROWS, BOARDCOLS } from './helpers.js';
+import gameState from './game-state.js';
 
 /**
  * Adds a point onto the winner's side of the scoreboard
@@ -8,17 +9,21 @@ export function increaseScore(currentPlayer) {
   let winnerScore = 0;
   // DEV: Get the current score from scoreboard
   currentPlayer === 'player1'
-    ? (winnerScore = document.getElementById('player1-score').innerHTML)
-    : (winnerScore = document.getElementById('player2-score').innerHTML);
+    ? (winnerScore = gameState.player1.score)
+    : (winnerScore = gameState.player2.score);
 
   // DEV: Update the current score
   winnerScore = parseInt(winnerScore);
   winnerScore++;
 
   // DEV: Set the new score on the scoreboard
-  currentPlayer === 'player1'
-    ? (document.getElementById('player1-score').innerHTML = winnerScore)
-    : (document.getElementById('player2-score').innerHTML = winnerScore);
+  if (currentPlayer === 'player1') {
+    gameState.player1.score = winnerScore;
+    document.getElementById('player1-score').innerHTML = winnerScore;
+  } else {
+    gameState.player2.score = winnerScore;
+    document.getElementById('player2-score').innerHTML = winnerScore;
+  }
 }
 
 /**

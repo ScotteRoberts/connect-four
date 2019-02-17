@@ -4,6 +4,10 @@ class Player {
     this.score = score;
   }
 
+  resetScore() {
+    this.score = 0;
+  }
+
   /*
   Ask Andrew about:
 
@@ -60,9 +64,14 @@ class GameState {
     this.player1Turn = player1Turn;
   }
 
-  reset() {
+  resetBoard() {
     this.turnHistory.reset(); // HACK: Look at this and figure out if it works.
     this.player1Turn = true;
+  }
+
+  resetScoreBoard() {
+    this.player1.resetScore();
+    this.player2.resetScore();
   }
 }
 

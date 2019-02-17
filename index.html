@@ -11,9 +11,9 @@
   <body>
     <h1>Connect Four</h1>
     <aside id="turn-history-container">
-      <h2 id="turn-history-title">Turn History</h2>
+      <!-- <h2 id="turn-history-title">Turn History</h2>
       <div id="turn-history-display"></div>
-      <button id="undo">Undo</button>
+      <button id="undo">Undo</button> -->
     </aside>
     <main id="board-container">
       <h2 id="turn-indicator"><span id="player-indicator" class="player1">Player 1</span> Turn</h2>
@@ -24,10 +24,11 @@
       <h2>Score Board</h2>
       <div id="score-board">
         <h3 class="player1">Player 1</h3>
-        <h4 id="player1-score">0</h4>
+        <span id="player1-score" class="player1">0</span>
         <h3 class="player2">Player 2</h3>
-        <h4 id="player2-score">0</h4>
+        <span id="player2-score" class="player2">0</span>
       </div>
+      <button id="score-board-reset">Reset</button>
     </aside>
 
     <script src="./js/main.js" type="module"></script>

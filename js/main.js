@@ -39,7 +39,7 @@ function initializeBoard() {
   document.getElementById('board').innerHTML = generateBoardHTML();
 
   // Reset gameboard state
-  gameState.reset();
+  gameState.resetBoard();
 
   // add event listeners to all slots
   document.querySelectorAll('.slot input[type=checkbox]').forEach(input => {
@@ -47,6 +47,13 @@ function initializeBoard() {
   });
 }
 
+function resetScoreBoard() {
+  gameState.resetScoreBoard();
+  document.getElementById('player1-score').innerText = 0;
+  document.getElementById('player2-score').innerText = 0;
+}
+
 initializeBoard();
 
 document.getElementById('board-reset').addEventListener('click', initializeBoard);
+document.getElementById('score-board-reset').addEventListener('click', resetScoreBoard);
