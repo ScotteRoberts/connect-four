@@ -1,19 +1,24 @@
 import { getSlotElement, BOARDROWS, BOARDCOLS } from './helpers.js';
 
 /**
- *
+ * Adds a point onto the winner's side of the scoreboard
  * @param {string} currentPlayer Current player's class
  */
 export function increaseScore(currentPlayer) {
-  console.log(currentPlayer);
-  if (currentPlayer === 'player1') {
-    let player1Score = document.getElementById('player1-score').innerHTML;
-    let score = parseInt(player1Score);
-    score++;
-    console.log(score);
-    const scoreString = score.toString();
-    player1Score = scoreString;
-  }
+  let winnerScore = 0;
+  // DEV: Get the current score from scoreboard
+  currentPlayer === 'player1'
+    ? (winnerScore = document.getElementById('player1-score').innerHTML)
+    : (winnerScore = document.getElementById('player2-score').innerHTML);
+
+  // DEV: Update the current score
+  winnerScore = parseInt(winnerScore);
+  winnerScore++;
+
+  // DEV: Set the new score on the scoreboard
+  currentPlayer === 'player1'
+    ? (document.getElementById('player1-score').innerHTML = winnerScore)
+    : (document.getElementById('player2-score').innerHTML = winnerScore);
 }
 
 /**
