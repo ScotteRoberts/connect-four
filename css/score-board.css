@@ -1,0 +1,23 @@
+#score-board-container {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+#score-board {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  /* justify-items: center; */
+  align-items: center;
+  width: 100%;
+}
+
+#score-board h3 {
+  text-transform: uppercase;
+}
+
+#score-board span {
+  justify-self: right;
+  font-size: 1.17em;
+}

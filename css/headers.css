@@ -6,19 +6,3 @@ h1 {
   font-size: 40px;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
-
-h2#turn-indicator {
-  background-color: #333;
-  color: white;
-  padding: 15px;
-  text-transform: uppercase;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-}
-
-h2#turn-indicator #player-indicator.player1 {
-  color: var(--player1-color);
-}
-
-h2#turn-indicator #player-indicator.player2 {
-  color: var(--player2-color);
-}

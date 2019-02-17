@@ -19,5 +19,7 @@ Made with HTML, CSS, JS, and :heart:
   - [ ] Move History
     - [ ] Move Display
     - [ ] Undo
-  - [ ] Score Board
+  - [x] Score Board
+    - [x] Point Display
+    - [x] Reset
   - [ ] Timer

@@ -1,11 +1,11 @@
-import checkWin from './win-logic.js';
+import { checkWin, increaseScore } from './win-logic.js';
 import { getSlotElement, disableBoard, BOARDROWS } from './helpers.js';
-
-let player1Turn = true;
+import gameState from './game-state.js';
 
 export default function runTurn(event) {
+  //console.log(player1Turn);
   const input = event.target;
-  const player = player1Turn ? 'player1' : 'player2';
+  const player = gameState.player1Turn ? 'player1' : 'player2';
 
   // Change color of label
   input.parentElement.className = player;
@@ -29,24 +29,24 @@ export default function runTurn(event) {
   if (isWin) {
     // update win text
     const turnIndicator = document.getElementById('turn-indicator');
-    const winnerText = player1Turn ? 'Player 1 Wins!' : 'Player 2 Wins!';
+    const winnerText = gameState.player1Turn ? 'Player 1 Wins!' : 'Player 2 Wins!';
     turnIndicator.innerHTML = `<span id="player-indicator" class="${player}">${winnerText}</span>`; // BUG: Andrew has a bug that makes his player 1 win only.
 
     // remove play access
     disableBoard();
 
     // TODO: Add points to the scoreboard
-    // increaseScore(winnerClass);
+    increaseScore(player);
 
     return;
   }
 
   // change whose turn it is
-  player1Turn = !player1Turn;
+  gameState.player1Turn = !gameState.player1Turn;
 
   // update player-indicator text
   const playerIndicator = document.getElementById('player-indicator');
-  if (player1Turn) {
+  if (gameState.player1Turn) {
     playerIndicator.innerText = 'Player 1';
     playerIndicator.className = 'player1';
   } else {
