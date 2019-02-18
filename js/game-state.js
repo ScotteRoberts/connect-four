@@ -8,30 +8,28 @@ class Player {
     this.score = 0;
   }
 
-  /*
-  Ask Andrew about:
+  // // Ask Andrew about:
 
-  get name() {
-    return this._name;
-  }
+  // get name() {
+  //   return this._name;
+  // }
 
-  and learn the difference between the different models of inheritance.
+  // // and learn the difference between the different models of inheritance.
 
-  VERSUS..............................
+  // // VERSUS..............................
 
-  getName() {
-    return this._name;
-  }
-  setName(name) {
-    this._name = name;
-  }
-  getScore() {
-    return this._score;
-  }
-  setScore(score) {
-    this._score = score;
-  }
-  */
+  // getName() {
+  //   return this._name;
+  // }
+  // setName(name) {
+  //   this._name = name;
+  // }
+  // getScore() {
+  //   return this._score;
+  // }
+  // setScore(score) {
+  //   this._score = score;
+  // }
 }
 
 let player1 = new Player('Scott');

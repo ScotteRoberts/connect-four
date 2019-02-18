@@ -23,3 +23,4 @@ Made with HTML, CSS, JS, and :heart:
     - [x] Point Display
     - [x] Reset
   - [ ] Timer
+- [ ] Responsiveness

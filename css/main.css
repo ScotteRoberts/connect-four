@@ -5,6 +5,9 @@
 @import 'score-board.css';
 
 body {
+  /* ADVICE: Use grid areas to mark where the pieces should go */
+  /* grid-area */
+  /* name the areas where you would like to place content */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);

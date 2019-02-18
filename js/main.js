@@ -54,3 +54,6 @@ function resetScoreBoard() {
 }
 
 initializeBoard();
+
+document.getElementById('board-reset').addEventListener('click', initializeBoard);
+document.getElementById('score-board-reset').addEventListener('click', resetScoreBoard);

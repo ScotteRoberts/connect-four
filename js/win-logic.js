@@ -26,6 +26,9 @@ export function increaseScore(currentPlayer) {
   }
 }
 
+// ADVICE: make the game state manipulation with DOM and data in the state manager.
+//
+
 /**
  * Checks if there is a win condition met in all any direction (up, down, diagonal)
  * @param {number} col Column of the slot to start checking at
