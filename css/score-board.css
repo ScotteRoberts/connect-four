@@ -20,4 +20,5 @@
 #score-board span {
   justify-self: right;
   font-size: 1.17em;
+  font-weight: bold;
 }
