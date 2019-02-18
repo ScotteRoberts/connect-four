@@ -2,32 +2,17 @@ import { getSlotElement, BOARDROWS, BOARDCOLS } from './helpers.js';
 import gameState from './game-state.js';
 
 /**
- * Adds a point onto the winner's side of the scoreboard
+ * Adds a point onto the winner's score count.
  * @param {string} currentPlayer Current player's class
  */
 export function increaseScore(currentPlayer) {
-  let winnerScore = 0;
-  // DEV: Get the current score from scoreboard
-  currentPlayer === 'player1'
-    ? (winnerScore = gameState.player1.score)
-    : (winnerScore = gameState.player2.score);
+  let winnerScore = gameState.getPlayerScore(currentPlayer);
 
-  // DEV: Update the current score
   winnerScore = parseInt(winnerScore);
   winnerScore++;
 
-  // DEV: Set the new score on the scoreboard
-  if (currentPlayer === 'player1') {
-    gameState.player1.score = winnerScore;
-    document.getElementById('player1-score').innerHTML = winnerScore;
-  } else {
-    gameState.player2.score = winnerScore;
-    document.getElementById('player2-score').innerHTML = winnerScore;
-  }
+  gameState.setPlayerScore(currentPlayer, winnerScore);
 }
-
-// ADVICE: make the game state manipulation with DOM and data in the state manager.
-//
 
 /**
  * Checks if there is a win condition met in all any direction (up, down, diagonal)

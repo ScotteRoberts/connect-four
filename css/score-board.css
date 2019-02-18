@@ -1,4 +1,5 @@
 #score-board-container {
+  grid-area: score-board-container;
   display: grid;
   justify-items: center;
   align-items: center;
@@ -8,7 +9,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  /* justify-items: center; */
   align-items: center;
   width: 100%;
 }
