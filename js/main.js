@@ -1,30 +1,6 @@
-import runTurn from './turn-logic.js';
-import { BOARDROWS, BOARDCOLS } from './helpers.js';
 import gameState from './game-state.js';
-
-/**
- * Programmatically generates the HTML for all slots on the board.
- */
-function generateBoardHTML() {
-  let boardHTML = '';
-  for (let row = BOARDROWS - 1; row >= 0; row--) {
-    for (let col = 0; col < BOARDCOLS; col++) {
-      boardHTML += `
-      <div class="slot">
-        <label for="slot${col}${row}">
-          <input 
-            type="checkbox" ${row > 0 ? 'disabled' : ''} name="slot${col}${row}" 
-            id="slot${col}${row}" 
-            data-row=${row} 
-            data-col=${col}/>
-        </label>
-      </div>
-      `;
-    }
-  }
-
-  return boardHTML;
-}
+import { runTurn } from './turn-logic.js';
+import { generateBoardHTML } from './game-generation.js';
 
 /**
  * Starts the game board at the base state.
@@ -47,13 +23,7 @@ function initializeBoard() {
   });
 }
 
-function resetScoreBoard() {
-  gameState.resetScoreBoard();
-  document.getElementById('player1-score').innerText = 0;
-  document.getElementById('player2-score').innerText = 0;
-}
+document.getElementById('board-reset').addEventListener('click', initializeBoard);
+document.getElementById('score-board-reset').addEventListener('click', gameState.resetScoreBoard);
 
 initializeBoard();
-
-document.getElementById('board-reset').addEventListener('click', initializeBoard);
-document.getElementById('score-board-reset').addEventListener('click', resetScoreBoard);

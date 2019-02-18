@@ -7,33 +7,7 @@ class Player {
   resetScore() {
     this.score = 0;
   }
-
-  // // Ask Andrew about:
-
-  // get name() {
-  //   return this._name;
-  // }
-
-  // // and learn the difference between the different models of inheritance.
-
-  // // VERSUS..............................
-
-  // getName() {
-  //   return this._name;
-  // }
-  // setName(name) {
-  //   this._name = name;
-  // }
-  // getScore() {
-  //   return this._score;
-  // }
-  // setScore(score) {
-  //   this._score = score;
-  // }
 }
-
-let player1 = new Player('Scott');
-let player2 = new Player('April');
 
 class TurnHistory {
   constructor(turns = []) {
@@ -62,17 +36,69 @@ class GameState {
     this.player1Turn = player1Turn;
   }
 
+  /**
+   * Change the player's turn and display.
+   */
+  changeTurn() {
+    // change whose turn it is
+    gameState.player1Turn = !gameState.player1Turn;
+
+    // update player-indicator text
+    const playerIndicator = document.getElementById('player-indicator');
+    if (gameState.player1Turn) {
+      playerIndicator.innerText = 'Player 1';
+      playerIndicator.className = 'player1';
+    } else {
+      playerIndicator.innerText = 'Player 2';
+      playerIndicator.className = 'player2';
+    }
+  }
+
   resetBoard() {
     this.turnHistory.reset(); // HACK: Look at this and figure out if it works.
     this.player1Turn = true;
   }
 
+  /**
+   * Get the current score from the player.
+   * @param {string} currentPlayer
+   */
+  getPlayerScore(currentPlayer) {
+    return currentPlayer === 'player1' ? this.player1.score : this.player2.score;
+  }
+
+  /**
+   * Set the new score for the player.
+   * @param {string} currentPlayer Current player's class
+   * @param {number} newScore The updated score
+   */
+  setPlayerScore(currentPlayer, newScore) {
+    if (currentPlayer === 'player1') {
+      this.player1.score = newScore;
+      document.getElementById('player1-score').innerHTML = newScore;
+    } else {
+      this.player2.score = newScore;
+      document.getElementById('player2-score').innerHTML = newScore;
+    }
+  }
+
+  /**
+   * Reset the scoreboard value and DOM text.
+   */
   resetScoreBoard() {
-    this.player1.resetScore();
-    this.player2.resetScore();
+    // Player 1
+    this.player1.score = 0;
+    document.getElementById('player1-score').innerText = 0;
+    // Player 2
+    this.player2.score = 0;
+    document.getElementById('player2-score').innerText = 0;
   }
 }
 
-let instance = new GameState(player1, player2, new TurnHistory());
+let gameState = new GameState(
+  new Player('Player One'),
+  new Player('Player Two'),
+  new TurnHistory()
+);
 
-export default instance;
+export default gameState;
