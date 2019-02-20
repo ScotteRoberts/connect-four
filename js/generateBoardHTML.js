@@ -3,7 +3,7 @@ import { BOARDCOLS, BOARDROWS } from './helpers.js';
 /**
  * Programmatically generates the HTML for all slots on the board.
  */
-export function generateBoardHTML() {
+export default function generateBoardHTML() {
   let boardHTML = '';
   for (let row = BOARDROWS - 1; row >= 0; row--) {
     for (let col = 0; col < BOARDCOLS; col++) {

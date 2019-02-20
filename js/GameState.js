@@ -1,32 +1,7 @@
-class Player {
-  constructor(name, score = 0) {
-    this.name = name;
-    this.score = score;
-  }
+import { enableUndoTurn } from './helpers.js';
 
-  resetScore() {
-    this.score = 0;
-  }
-}
-
-class TurnHistory {
-  constructor(turns = []) {
-    this.turns = turns;
-  }
-  addMove(move) {
-    this.turns.push(move);
-  }
-
-  undoMove() {
-    this.turns.pop();
-  }
-
-  reset() {
-    this.turns = [];
-  }
-}
-
-// TODO: Add a timer class that can affect the turn speed.
+import Player from './Player.js';
+import TurnHistory from './TurnHistory.js';
 
 class GameState {
   constructor(player1, player2, turnHistory, player1Turn = true) {
@@ -34,6 +9,11 @@ class GameState {
     this.player2 = player2;
     this.turnHistory = turnHistory;
     this.player1Turn = player1Turn;
+
+    //binding
+    this.changeTurn = this.changeTurn.bind(this);
+    this.undoTurn = this.undoTurn.bind(this);
+    this.resetBoard = this.resetBoard.bind(this);
   }
 
   /**
@@ -41,11 +21,11 @@ class GameState {
    */
   changeTurn() {
     // change whose turn it is
-    gameState.player1Turn = !gameState.player1Turn;
+    this.player1Turn = !this.player1Turn;
 
     // update player-indicator text
     const playerIndicator = document.getElementById('player-indicator');
-    if (gameState.player1Turn) {
+    if (this.player1Turn) {
       playerIndicator.innerText = 'Player 1';
       playerIndicator.className = 'player1';
     } else {
@@ -54,9 +34,22 @@ class GameState {
     }
   }
 
+  /**
+   * Handles the undo event.
+   */
+  undoTurn() {
+    if (this.turnHistory.undoTurn()) {
+      this.changeTurn();
+    }
+  }
+
+  /**
+   * Resets the playable board and turn history.
+   */
   resetBoard() {
     this.turnHistory.reset(); // HACK: Look at this and figure out if it works.
     this.player1Turn = true;
+    enableUndoTurn();
   }
 
   /**
@@ -80,6 +73,19 @@ class GameState {
       this.player2.score = newScore;
       document.getElementById('player2-score').innerHTML = newScore;
     }
+  }
+
+  /**
+   * Adds a point onto the winner's score count.
+   * @param {string} currentPlayer Current player's class
+   */
+  increaseScore(currentPlayer) {
+    let winnerScore = this.getPlayerScore(currentPlayer);
+
+    winnerScore = parseInt(winnerScore);
+    winnerScore++;
+
+    this.setPlayerScore(currentPlayer, winnerScore);
   }
 
   /**

@@ -16,9 +16,9 @@ Made with HTML, CSS, JS, and :heart:
 - [x] Win Logic
 - [x] Modularity
 - [ ] Extensions
-  - [ ] Move History
-    - [ ] Move Display
-    - [ ] Undo
+  - [x] Move History
+    - [x] Move Display
+    - [x] Undo
   - [x] Score Board
     - [x] Point Display
     - [x] Reset
