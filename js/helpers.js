@@ -22,3 +22,11 @@ export function disableBoard() {
     checkbox.disabled = true; // Can we remove the curly braces on these?
   });
 }
+
+export function disableUndoTurn() {
+  document.getElementById('undo-turn').disabled = true;
+}
+
+export function enableUndoTurn() {
+  document.getElementById('undo-turn').disabled = false;
+}

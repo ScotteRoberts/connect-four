@@ -1,3 +1,33 @@
 #turn-history-container {
   grid-area: turn-history-container;
 }
+
+#turn-history-container h3 {
+  display: flex;
+  justify-content: space-between;
+}
+
+#turn-history-display {
+  max-height: 570px;
+  overflow-y: auto;
+}
+
+#turn-history-display h4 {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 1em;
+}
+
+.player1 .game-piece {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: var(--player1-color);
+}
+
+.player2 .game-piece {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: var(--player2-color);
+}

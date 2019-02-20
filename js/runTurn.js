@@ -1,12 +1,12 @@
-import { checkWin, increaseScore } from './win-logic.js';
-import { getSlotElement, disableBoard, BOARDROWS } from './helpers.js';
-import gameState from './game-state.js';
+import checkWin from './checkWin.js';
+import { BOARDROWS, getSlotElement, disableBoard, disableUndoTurn } from './helpers.js';
+import gameState from './GameState.js';
 
 /**
  * REPL for placing a game piece.
  * @param {object} event Event object for slotted piece
  */
-export function runTurn(event) {
+export default function runTurn(event) {
   const input = event.target;
   const player = gameState.player1Turn ? 'player1' : 'player2';
 
@@ -27,6 +27,9 @@ export function runTurn(event) {
     neighbor.disabled = false;
   }
 
+  // push piece to history
+  gameState.turnHistory.addTurn(col, row, player);
+
   // check if it's a win
   const isWin = checkWin(col, row, player);
   if (isWin) {
@@ -37,9 +40,8 @@ export function runTurn(event) {
 
     // remove play access
     disableBoard();
-
-    // TODO: Add points to the scoreboard
-    increaseScore(player);
+    disableUndoTurn();
+    gameState.increaseScore(player);
 
     return;
   }

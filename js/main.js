@@ -1,6 +1,6 @@
-import gameState from './game-state.js';
-import { runTurn } from './turn-logic.js';
-import { generateBoardHTML } from './game-generation.js';
+import gameState from './GameState.js';
+import runTurn from './runTurn.js';
+import generateBoardHTML from './generateBoardHTML.js';
 
 /**
  * Starts the game board at the base state.
@@ -23,7 +23,9 @@ function initializeBoard() {
   });
 }
 
+// DEV: Button listeners
 document.getElementById('board-reset').addEventListener('click', initializeBoard);
 document.getElementById('score-board-reset').addEventListener('click', gameState.resetScoreBoard);
+document.getElementById('undo-turn').addEventListener('click', gameState.undoTurn);
 
 initializeBoard();

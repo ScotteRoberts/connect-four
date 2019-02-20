@@ -1,18 +1,4 @@
 import { getSlotElement, BOARDROWS, BOARDCOLS } from './helpers.js';
-import gameState from './game-state.js';
-
-/**
- * Adds a point onto the winner's score count.
- * @param {string} currentPlayer Current player's class
- */
-export function increaseScore(currentPlayer) {
-  let winnerScore = gameState.getPlayerScore(currentPlayer);
-
-  winnerScore = parseInt(winnerScore);
-  winnerScore++;
-
-  gameState.setPlayerScore(currentPlayer, winnerScore);
-}
 
 /**
  * Checks if there is a win condition met in all any direction (up, down, diagonal)
@@ -20,7 +6,7 @@ export function increaseScore(currentPlayer) {
  * @param {number} row Row of the slot to start checking at
  * @param {string} currentPlayer Current player's class
  */
-export function checkWin(col, row, currentPlayer) {
+export default function checkWin(col, row, currentPlayer) {
   return (
     checkDown(col, row, currentPlayer) ||
     checkAccross(col, row, currentPlayer) ||
