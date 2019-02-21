@@ -7,7 +7,7 @@ export default class Player {
   /**
    * Resets the current score.
    */
-  resetScore() {
+  resetScore = () => {
     this.score = 0;
-  }
+  };
 }

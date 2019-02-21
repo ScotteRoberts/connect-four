@@ -3,10 +3,6 @@ import { getSlotElement } from './helpers.js';
 export default class TurnHistory {
   constructor() {
     this._turns = [];
-
-    // binding
-    this.undoTurn = this.undoTurn.bind(this);
-    this.reset = this.reset.bind(this);
   }
 
   /**
@@ -15,7 +11,7 @@ export default class TurnHistory {
    * @param {number} row Row of the the most recent slot
    * @param {string} currentPlayer Current player's class
    */
-  addTurn(col, row, currentPlayer) {
+  addTurn = (col, row, currentPlayer) => {
     const turn = { col, row, currentPlayer, count: this._turns.length };
     this._turns.push(turn);
 
@@ -28,12 +24,12 @@ export default class TurnHistory {
     `;
     // Scroll to bottom of display
     display.scrollTo(0, display.scrollHeight);
-  }
+  };
 
   /**
    * Removes most recent turn from game history and board
    */
-  undoTurn() {
+  undoTurn = () => {
     if (this._turns.length > 0) {
       // Remove last turn from list and destructure into variables.
       const { col, row, count } = this._turns.pop();
@@ -55,13 +51,13 @@ export default class TurnHistory {
       return true;
     }
     return false;
-  }
+  };
 
   /**
    * Resets the turn history
    */
-  reset() {
+  reset = () => {
     this._turns = [];
     document.getElementById('turn-history-display').innerHTML = ``;
-  }
+  };
 }
